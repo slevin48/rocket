@@ -1,0 +1,11 @@
+numpy
+matplotlib
+keras
+scikit-learn
+imgaug 
+opencv-python
+tensorflow
+tflearn
+pywin32
+pynput
+streamlit
