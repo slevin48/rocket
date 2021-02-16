@@ -5,8 +5,8 @@ import cv2
 
 # training_dataset = "training_data_2021-02-15-1"
 
-st.sidebar.title("GTAV dataset")
-training_dataset = st.sidebar.input("training_data_2021-02-15-1")
+st.sidebar.title("Rocket dataset")
+training_dataset = st.sidebar.text_input("dataset","training_data_2021-02-15-1")
 
 @st.cache(show_spinner=False)
 def load_image():
