@@ -1,8 +1,8 @@
 #  balance_data.py
 
 import numpy as np
-import pandas as pd
-from collections import Counter
+# import pandas as pd
+# from collections import Counter
 from random import shuffle
 import os
 
@@ -20,9 +20,9 @@ for file in l[1:]:
 
 print ("Train Data: ", train_data.shape)
 
-df = pd.DataFrame(train_data)
-print(df.head())
-print(Counter(df[1].apply(str)))
+# df = pd.DataFrame(train_data)
+# print(df.head())
+# print(Counter(df[1].apply(str)))
 
 '''
 Convert keys to a ...multi-hot... array
@@ -74,7 +74,7 @@ zq = zq[:len(z)]
 zd = zd[:len(z)]
 # sq ignored
 # sd ignored
-nk[:len(z)]
+nk = nk[:len(z)]
 
 final_data = z + q + d + zq + zd + nk
 shuffle(final_data)
