@@ -12,8 +12,8 @@ q = [0,0,1,0,0,0,0,0,0]
 d = [0,0,0,1,0,0,0,0,0]
 zq = [0,0,0,0,1,0,0,0,0]
 zd = [0,0,0,0,0,1,0,0,0]
-sq = [0,0,0,0,0,0,1,0,0]
-sd = [0,0,0,0,0,0,0,1,0]
+c = [0,0,0,0,0,0,1,0,0] # boost
+v = [0,0,0,0,0,0,0,1,0] # jump
 nk = [0,0,0,0,0,0,0,0,1]
 
 starting_value = 1
@@ -36,7 +36,7 @@ def keys_to_output(keys):
     '''
     Convert keys to a ...multi-hot... array
      0  1  2  3  4   5   6   7    8
-    [Z, S, Q, D, ZQ, ZD, SQ, SD, NOKEY] boolean values.
+    [Z, S, Q, D, ZQ, ZD, C, V, NOKEY] boolean values.
     A replaced by Q for french keyboard
     '''
     output = [0,0,0,0,0,0,0,0,0]
@@ -45,10 +45,10 @@ def keys_to_output(keys):
         output = zq
     elif 'Z' in keys and 'D' in keys:
         output = zd
-    elif 'S' in keys and 'Q' in keys:
-        output = sq
-    elif 'S' in keys and 'D' in keys:
-        output = sd
+    elif 'C' in keys:
+        output = c
+    elif 'V' in keys:
+        output = v
     elif 'Z' in keys:
         output = z
     elif 'S' in keys:

@@ -6,12 +6,9 @@ import numpy as np
 from random import shuffle
 import os
 
-training_dataset = "training_data_2021-02-15-1"
+training_dataset = "training_data_2021-02-16-1"
 
 l = os.listdir("training_data/"+training_dataset)
-
-# training_dataset = "training_data_2021-02-15-1"
-# train_data = np.load("training_data/"+training_dataset+"/training_data-1.npy",allow_pickle=True)
 
 train_data = np.load("training_data/"+training_dataset+"/"+l[0],allow_pickle=True)
 for file in l[1:]:
@@ -27,7 +24,7 @@ print ("Train Data: ", train_data.shape)
 '''
 Convert keys to a ...multi-hot... array
  0  1  2  3  4   5   6   7    8
-[Z, S, Q, D, ZQ, ZD, SQ, SD, NOKEY] boolean values.
+[Z, S, Q, D, ZQ, ZD, C, V, NOKEY] boolean values.
 A replaced by Q for french keyboard
 '''
 
@@ -38,8 +35,8 @@ q = []
 d = []
 zq = []
 zd = []
-sq = []
-sd = []
+c = []
+v = []
 nk = []
 
 for data in train_data:
@@ -59,9 +56,9 @@ for data in train_data:
     elif choice == [0,0,0,0,0,1,0,0,0]:
         zd.append([img,choice])
     elif choice == [0,0,0,0,0,0,1,0,0]:
-        sq.append([img,choice])
+        c.append([img,choice])
     elif choice == [0,0,0,0,0,0,0,1,0]:
-        sd.append([img,choice])
+        v.append([img,choice])
     elif choice == [0,0,0,0,0,0,0,0,1]:
         nk.append([img,choice])
 
@@ -72,11 +69,11 @@ q = q[:len(z)]
 d = d[:len(z)]
 zq = zq[:len(z)]
 zd = zd[:len(z)]
-# sq ignored
-# sd ignored
+c = c[:len(z)]
+v = v[:len(z)]
 nk = nk[:len(z)]
 
-final_data = z + q + d + zq + zd + nk
+final_data = z + q + d + s + zq + zd + c + v + nk
 shuffle(final_data)
 
 np.save("training_data/"+training_dataset+"-balanced.npy", final_data)

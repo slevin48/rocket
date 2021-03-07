@@ -2,10 +2,14 @@ numpy
 matplotlib
 keras
 scikit-learn
+scikit-image
 imgaug 
 opencv-python
-tensorflow
+Tensorflow
 tflearn
 pywin32
 pynput
 streamlit
+inputs
+h5py==2.10.0
+# termcolor

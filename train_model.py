@@ -3,12 +3,13 @@
 import numpy as np
 from alexnet import alexnet
 
+training_dataset = "training_data_2021-02-16-1"
+
 WIDTH = 160
 HEIGHT = 120
 LR = 1e-3
 EPOCHS = 10
-MODEL_NAME = 'rocket-{}-{}-{}-epochs-300K-data.model'.format(LR, 'alexnetv2',EPOCHS)        
-training_dataset = "training_data_2021-02-15-1"
+MODEL_NAME = 'rocket-{}-{}-{}-epochs-{}.model'.format(LR, 'alexnetv2',EPOCHS,training_dataset)        
 
 model = alexnet(WIDTH, HEIGHT, LR)
 
@@ -32,4 +33,4 @@ for i in range(EPOCHS):
 
 
 
-# tensorboard --logdir=foo:D:\devel\rocket\log
+# tensorboard --logdir=D:\devel\rocket\log
